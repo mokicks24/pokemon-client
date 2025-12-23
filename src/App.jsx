@@ -48,7 +48,7 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     await fetch(`${API_URL}/api/pokemon`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -60,7 +60,7 @@ function App() {
         level: Number(formData.level) || 1
       })
     });
-
+  
     setFormData({
       name: "",
       nickname: "",
@@ -68,7 +68,7 @@ function App() {
       level: "",
       evolution_line: ""
     });
-
+  
     fetchPokemon();
   };
 
@@ -99,6 +99,8 @@ function App() {
         <input name="evolution_line" placeholder="Evolution line" value={formData.evolution_line} onChange={handleChange} />
         <button type="submit">Add Pokémon</button>
       </form>
+
+      <p>Total Pokémon: {pokemon.length}</p>
 
       <h2>My Pokémon</h2>
 
